@@ -4,6 +4,7 @@ class Player {
         this.height = 31;
         this.x = (WIDTH - this.width) / 2;
         this.y = HEIGHT - this.height - 10;
+        this.stepCount = 0;
     }
     draw() {
         this.x = constrain(this.x, 10, (WIDTH - this.width - 10))
@@ -14,6 +15,22 @@ class Player {
         }
         if (keyIsDown(39)) {
             this.moveRight()
+        }
+
+        if (this.stepCount < 10) {
+            game.playerImage = loadImage('images/player/player.png');
+            this.stepCount++
+        } else if (this.stepCount < 20) {
+            game.playerImage = loadImage('images/player/player-l.png');
+            this.stepCount++
+        } else if (this.stepCount < 30) {
+            game.playerImage = loadImage('images/player/player.png');
+            this.stepCount++
+        } else if (this.stepCount < 40) {
+            game.playerImage = loadImage('images/player/player-r.png');
+            this.stepCount++
+        } else {
+            this.stepCount = 0;
         }
     }
     moveLeft() {

@@ -6,7 +6,7 @@ class Game {
         this.dog = new Dog();
     }
     preload() {
-        this.playerImage = loadImage('images/player/walk.png');
+        this.playerImage = loadImage('images/player/player.png');
         this.dogImage = loadImage('images/dog/dog.png');
     }
     draw() {
