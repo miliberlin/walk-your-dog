@@ -1,0 +1,16 @@
+/* PANEL */
+#panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.2rem;
+  .emoji {
+    position: relative;
+    bottom: 0.2rem;
+    left: 0.7rem;
+  }
+  #score {
+    margin-right: 30px;
+  }
+}

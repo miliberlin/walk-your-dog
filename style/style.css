@@ -1,3 +1,57 @@
+/* BASE STYLING */
+.container {
+  width: 450px;
+  margin: 0 auto;
+}
 
+/***** FONT STYLING *****/
+body {
+  font-family: "Press Start 2P", cursive;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.9rem;
+  margin: 1.5rem 0;
+}
+
+/* CANVAS */
+#canvas {
+  width: 100%;
+}
+
+canvas {
+  border: 1px solid black;
+}
+
+/* PANEL */
+#panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+#panel .emoji {
+  position: relative;
+  bottom: 0.2rem;
+  left: 0.7rem;
+}
+#panel #score {
+  margin-right: 30px;
+}
+
+/* PLAYER */
+#player {
+  width: 10px;
+  height: 10px;
+  background: #80727b;
+}
+
+#dog {
+  width: 10px;
+  height: 10px;
+  background: #f1dede;
+}
 
 /*# sourceMappingURL=style.css.map */
