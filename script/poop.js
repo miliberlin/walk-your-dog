@@ -11,6 +11,7 @@ class Poop {
 
         this.y += this.speed;
     }
+    // increase score when poop is picked up
     pickUpPoop() {
         if (((this.y >= game.player.y+2) || (this.y >= game.player.y-2)) && ((this.x >= game.player.x+2) || (this.x >= game.player.x-2))) {
             game.score++;

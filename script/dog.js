@@ -48,8 +48,10 @@ class Dog {
         if ((this.x % 30 === 0) && (frameCount % 10 === 0)) {
             this.poopArray.push(new Poop());
         }
+
         this.poopArray.forEach(function (newPoop) {
             newPoop.draw();
+            // remove element from array when it has been collected and update game score
             if (newPoop.pickUpPoop()) {
                 game.dog.poopArray.splice(game.dog.poopArray.indexOf(newPoop),1);
                 score.innerText = game.score;
@@ -59,7 +61,8 @@ class Dog {
                     cash.innerText = game.cash;
                 }
             }
-            if (newPoop.y === HEIGHT+ 5) {
+            // remove element from array when it has left the screen
+            if (newPoop.y === HEIGHT + 5) {
                 game.dog.poopArray.splice(game.dog.poopArray.indexOf(newPoop),1);
                 game.cash-=50;
                 cash.innerText = game.cash;
