@@ -12,10 +12,11 @@ function setup() {
   canvas.parent("canvas");
   // slow down player
   frameRate(20);
+  game.setup();
 }
 
 function draw() {
   game.draw();
-  game.drawGrid();
+  // game.drawGrid();
   game.checkGameStatus();
 }
