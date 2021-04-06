@@ -1,7 +1,7 @@
 class Game {
   constructor() {
     this.score = 0;
-    this.cash = 50;
+    this.cash = 200;
     this.gameOver = false;
     this.player = new Player();
     this.dog = new Dog();
@@ -16,15 +16,15 @@ class Game {
     this.poopImage = loadImage('images/poop.png');
     this.backgroundImages = [
       { src: loadImage('images/background/tile-1.png'), top: 'g', right: 'g', bottom: 'g', left: 'g'},
-      {src: loadImage('images/background/tile-2.png'), top: 'b' , right: 'g', bottom: 'b', left: 'g'},
+      // {src: loadImage('images/background/tile-2.png'), top: 'b' , right: 'g', bottom: 'b', left: 'g'},
       {src: loadImage('images/background/tile-3.png'), top: 'g', right: 'g', bottom: 'g', left: 'g'},
-      {src: loadImage('images/background/tile-4.png'), top: 'g', right: 'b', bottom: 'g', left: 'b'},
-      {src: loadImage('images/background/tile-5.png'), top: 'b', right: 'g', bottom: 'b', left: 'g'},
-      {src: loadImage('images/background/tile-6.png'), top: 'b', right: 'b', bottom: 'b', left: 'b'},
-      {src: loadImage('images/background/tile-7.png'), top: 'b', right: 'b', bottom: 'b', left: 'b'},
-      {src: loadImage('images/background/tile-8.png'), top: 'g', right: 'b', bottom: 'g', left: 'b'},
-      {src: loadImage('images/background/tile-9.png'), top: 'b', right: 'b', bottom: 'b', left: 'b'},
-      {src: loadImage('images/background/tile-10.png'), top: 'g', right: 'g', bottom: 'g', left: 'g'},
+      // {src: loadImage('images/background/tile-4.png'), top: 'g', right: 'b', bottom: 'g', left: 'b'},
+      // {src: loadImage('images/background/tile-5.png'), top: 'b', right: 'g', bottom: 'b', left: 'g'},
+      // {src: loadImage('images/background/tile-6.png'), top: 'b', right: 'b', bottom: 'b', left: 'b'},
+      // {src: loadImage('images/background/tile-7.png'), top: 'b', right: 'b', bottom: 'b', left: 'b'},
+      // {src: loadImage('images/background/tile-8.png'), top: 'g', right: 'b', bottom: 'g', left: 'b'},
+      // {src: loadImage('images/background/tile-9.png'), top: 'b', right: 'b', bottom: 'b', left: 'b'},
+      // {src: loadImage('images/background/tile-10.png'), top: 'g', right: 'g', bottom: 'g', left: 'g'},
       {src: loadImage('images/background/tile-11.png'), top: 'g', right: 'g', bottom: 'g', left: 'g'}
     ];
     this.backgroundDecorationImages = [

@@ -1,5 +1,6 @@
 const canvasDiv = document.querySelector('.container');
-const WIDTH = canvasDiv.offsetWidth;
+// const WIDTH = canvasDiv.offsetWidth;
+const WIDTH = 450;
 const HEIGHT = 450;
 const SQUARE = 30;
 
