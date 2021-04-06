@@ -1,5 +1,8 @@
 const game = new Game();
 
+score.innerText = game.score;
+cash.innerText = game.cash;
+
 function preload() {
   game.preload();
 }
@@ -14,4 +17,5 @@ function setup() {
 function draw() {
   game.draw();
   game.drawGrid();
+  game.checkGameStatus();
 }

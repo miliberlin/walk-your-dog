@@ -1,7 +1,7 @@
 class Game {
     constructor() {
         this.score = 0;
-        this.cash = 200;
+        this.cash = 50;
         this.player = new Player();
         this.dog = new Dog();
         this.gameOver = false;
@@ -23,5 +23,12 @@ class Game {
                 line(0, k, WIDTH, k);
             }
         }
+    }
+    checkGameStatus() {
+        if (this.cash <= 0) {
+            game.gameOver = true;
+        }
+    }
+    gameOver() {
     }
 }
