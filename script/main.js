@@ -9,11 +9,11 @@ function preload() {
 }
 
 function setup() {
-  let canvas = createCanvas(WIDTH, HEIGHT);
-  canvas.parent("canvas");
+  // let canvas = createCanvas(WIDTH, HEIGHT);
+  // canvas.parent("canvas");
   // slow down player
-  frameRate(40);
   game.setup();
+  frameRate(40);
 }
 
 function draw() {

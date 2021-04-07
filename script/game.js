@@ -9,7 +9,16 @@ class Game {
     this.background = new Background();
   }
   setup() {
+    let canvas = createCanvas(WIDTH, HEIGHT);
+    canvas.parent("canvas");  
     this.background.setup();
+    // canvas.mousePressed(this.keyPressed);
+    // background(220);
+    // text('tap here to play', 10, 20);
+  // keyPressed() {
+  //   if (keyCode === ENTER) {
+  //     game.sound.play();
+  //   }
   }
   preload() {
     this.playerImage = loadImage('images/player/player.png');
@@ -28,6 +37,8 @@ class Game {
         { src: loadImage('images/background/level-2/tile-9.png')}
       ]
     ];
+    // soundFormats('mp3');
+    // this.sound = loadSound('sounds/Steppin-Up.mp3');
   }
   draw() {
     clear();
