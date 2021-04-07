@@ -17,6 +17,7 @@ function setup() {
 
 function draw() {
   game.draw();
-  // game.drawGrid();
+  game.drawGrid();
   game.checkGameStatus();
+  game.gameEnd();
 }
