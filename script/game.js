@@ -46,6 +46,10 @@ class Game {
     }
   }
   checkGameStatus() {
+    if (this.score > 0 && this.score % 2 === 0) {
+      this.level++;
+      game.dog.increaseSpeed();
+    }
     if (this.cash <= 0) {
       this.gameOver = true;
       this.cash = 0;

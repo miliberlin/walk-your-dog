@@ -8,19 +8,29 @@ class Dog {
         this.stepCount = 0;
         this.speed = 2;
         this.poopArray = [];
-        this.newPostion = this.xArray[Math.floor(Math.random() * (this.xArray.length))];
+        this.newPosition = this.xArray[Math.floor(Math.random() * (this.xArray.length))];
+        // this.newPosition = 300;
     }
     draw() {
         image(game.dogImage, this.x, this.y, this.width, this.height);
 
-        if (this.newPostion < this.x) {
+        // changing position
+        if (this.newPosition < this.x) {
             this.x -= this.speed;
-        } else if (this.x < this.newPostion) {
-            this.x += this.speed;
-        } else {
-            this.newPostion = this.xArray[Math.floor(Math.random() * (this.xArray.length))];
+            // console.log(this.x)
+            // console.log(this.newPosition)
+        } else if (this.x < this.newPosition) {
+            this.x += this.speed*2;
+            // console.log(this.x)
+            // console.log(this.newPosition)
+        }
+        else {
+            this.newPosition = this.xArray[Math.floor(random(0, this.xArray.length))];
+            // console.log(this.x)
+            // console.log(this.newPosition)
         }
 
+        // changing sprites
         if (this.stepCount < 10) {
             this.stepCount++;
         } else if (this.stepCount === 10) {
@@ -45,6 +55,7 @@ class Dog {
             this.stepCount = 0;
         }
 
+        // pooping
         if ((this.x % 30 === 0) && (frameCount % 10 === 0)) {
             this.poopArray.push(new Poop());
         }
@@ -68,5 +79,8 @@ class Dog {
                 cash.innerText = game.cash;
             }
         })
+    }
+    increaseSpeed() {
+        this.speed++;
     }
 }
