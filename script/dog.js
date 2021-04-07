@@ -22,6 +22,15 @@ class Dog {
         else {
             this.newPosition = this.xArray[Math.floor(random(0, this.xArray.length))];
         }
+        
+        // this gets stuck:
+        // if (this.newPosition < this.x) {
+        //     this.x -= this.speed;
+        // } else if (this.x < this.newPostion) {
+        //     this.x += this.speed;
+        // } else {
+        //     this.newPostion = this.xArray[Math.floor(Math.random() * (this.xArray.length))];
+        // }
 
         // changing sprites
         if (this.stepCount < 10) {
