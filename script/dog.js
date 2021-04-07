@@ -6,7 +6,7 @@ class Dog {
         this.xArray = [0,30,60,90,120,150,180,210,240,270,300,330,360,390,420]
         this.y = this.height;
         this.stepCount = 0;
-        this.speed = 1;
+        // this.speed = 1;
         this.poopArray = [];
         this.newPosition = this.xArray[Math.floor(Math.random() * (this.xArray.length))];
     }
@@ -15,22 +15,14 @@ class Dog {
 
         // changing position
         if (this.newPosition < this.x) {
-            this.x -= Math.floor(random(3, this.speed));
+            this.x -= Math.floor(random(1, game.level));
         } else if (this.x < this.newPosition) {
-            this.x += Math.floor(random(1, this.speed));
+            this.x += Math.floor(random(1, game.level));
         }
         else {
             this.newPosition = this.xArray[Math.floor(random(0, this.xArray.length))];
         }
-        
-        // this gets stuck:
-        // if (this.newPosition < this.x) {
-        //     this.x -= this.speed;
-        // } else if (this.x < this.newPostion) {
-        //     this.x += this.speed;
-        // } else {
-        //     this.newPostion = this.xArray[Math.floor(Math.random() * (this.xArray.length))];
-        // }
+
 
         // changing sprites
         if (this.stepCount < 10) {
@@ -58,7 +50,8 @@ class Dog {
         }
 
         // pooping
-        if ((this.x % 30 === 0) && (frameCount % 10 === 0)) {
+        if ((this.x % 30 === 0) && (frameCount % 2 === 0)) {
+        // if (frameCount % 60 === 0) {
             this.poopArray.push(new Poop());
         }
 
@@ -69,9 +62,17 @@ class Dog {
                 game.dog.poopArray.splice(game.dog.poopArray.indexOf(newPoop),1);
                 score.innerText = game.score;
 
+                // add cash
                 if (game.score % 3 ===0 ) {
                     game.cash+=10;
                     cash.innerText = game.cash;
+                }
+                // increase level
+                if (game.score % 10 === 0) {
+                    game.level++;
+                    level.innerText = game.level;
+                    game.dog.increaseSpeed();
+                    game.background.generateBackground();
                 }
             }
             // remove element from array when it has left the screen
