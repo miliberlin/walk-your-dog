@@ -3,15 +3,15 @@ body {
   font-family: "Press Start 2P", cursive;
   background: url("../images/shiba-bg-pattern.png") repeat;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
 }
 
 .container {
   width: 450px;
   background-color: #c9e4ca;
+  margin-top: 20px;
   padding: 5px 20px;
   border-radius: 5px;
 }
@@ -39,6 +39,18 @@ p.endText {
   margin: 100px 0 0 25px;
   width: 400px;
   height: 100px;
+}
+
+button {
+  padding: 5px 20px;
+  font-family: "Press Start 2P", cursive;
+}
+
+#credits {
+  font-size: 0.3rem;
+  line-height: 0.9rem;
+  max-width: 450px;
+  margin: 0;
 }
 
 /* CANVAS */
