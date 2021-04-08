@@ -1,11 +1,17 @@
 /* BASE STYLING */
 body {
   font-family: "Press Start 2P", cursive;
-  // background: url("../images/shiba-bg-3.jpeg") repeat;
-  // background: url("../images/shiba-with-woman.jpeg") no-repeat bottom right;
+  background: url("../images/shiba-bg-pattern.png") repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .container {
   width: 450px;
-  margin: 0 auto;
+  background-color: #c9e4ca;
+  padding: 5px 20px;
+  border-radius: 5px;
 }

@@ -1,11 +1,19 @@
 /* BASE STYLING */
 body {
   font-family: "Press Start 2P", cursive;
+  background: url("../images/shiba-bg-pattern.png") repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .container {
   width: 450px;
-  margin: 0 auto;
+  background-color: #c9e4ca;
+  padding: 5px 20px;
+  border-radius: 5px;
 }
 
 /***** FONT STYLING *****/
@@ -22,10 +30,11 @@ h1 {
 /* CANVAS */
 #canvas {
   width: 100%;
+  position: relative;
 }
 
 canvas {
-  border: 1px solid black;
+  border-radius: 5px;
 }
 
 /* PANEL */

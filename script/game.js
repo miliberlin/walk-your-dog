@@ -3,15 +3,17 @@ class Game {
     this.score = 0;
     this.cash = 200;
     this.level = 1;
+    this.mode = 0;
     this.gameOver = false;
     this.player = new Player();
     this.dog = new Dog();
     this.background = new Background();
   }
   setup() {
-    let canvas = createCanvas(WIDTH, HEIGHT);
-    canvas.parent("canvas");  
+    // let canvas = createCanvas(WIDTH, HEIGHT);
+    // canvas.parent("canvas");  
     this.background.setup();
+
     // canvas.mousePressed(this.keyPressed);
     // background(220);
     // text('tap here to play', 10, 20);
