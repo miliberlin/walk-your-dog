@@ -1,17 +1,15 @@
 class Game {
   constructor() {
     this.score = 0;
-    this.cash = 200;
+    this.cash = 10;
     this.level = 1;
     this.mode = 0;
-    this.gameOver = false;
     this.player = new Player();
     this.dog = new Dog();
     this.background = new Background();
+    this.highscore = 0;
   }
   setup() {
-    // let canvas = createCanvas(WIDTH, HEIGHT);
-    // canvas.parent("canvas");  
     this.background.setup();
 
     // canvas.mousePressed(this.keyPressed);
@@ -55,18 +53,5 @@ class Game {
         line(0, k, WIDTH, k);
       }
     }
-  }
-  checkGameStatus() {
-    if (this.cash <= 0) {
-      this.gameOver = true;
-      this.cash = 0;
-    }
-  }
-  gameEnd() {
-    // if (this.gameOver) {
-    //   fill(51);
-    //   rect(0, 0, WIDTH, HEIGHT);
-    //   text('game over', 50, 50);
-    // }
   }
 }

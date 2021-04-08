@@ -21,7 +21,6 @@ class Poop {
       (game.player.x + game.player.height >= this.x + this.height))
       ) {
       game.score++;
-      game.checkGameStatus();
       return true;
     }
   }
