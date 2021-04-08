@@ -10,10 +10,11 @@
     bottom: 0.2rem;
     left: 0.7rem;
   }
-  #score {
-    margin-right: 30px;
+  & > * {
+    margin: 0 15px;
   }
-  #cash {
-    margin-right: 30px;
+  #sound {
+    padding-bottom: 5px;
+    cursor: pointer;
   }
 }

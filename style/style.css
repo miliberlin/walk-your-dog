@@ -68,11 +68,12 @@ p.endText {
   bottom: 0.2rem;
   left: 0.7rem;
 }
-#panel #score {
-  margin-right: 30px;
+#panel > * {
+  margin: 0 15px;
 }
-#panel #cash {
-  margin-right: 30px;
+#panel #sound {
+  padding-bottom: 5px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -8,6 +8,7 @@ class Game {
     this.player = new Player();
     this.dog = new Dog();
     this.background = new Background();
+    this.muted = false;
   }
   setup() {
     this.background.setup();
@@ -24,7 +25,9 @@ class Game {
     resetButton.parent('canvas');
     endText = createElement('p', '');
     endText.addClass('endText');
-    endText.parent('canvas')
+    endText.parent('canvas');
+
+    sound.addEventListener('click', game.muteSound);
   }
   preload() {
     this.playerImage = loadImage('images/player/player.png');
@@ -98,7 +101,7 @@ class Game {
     game.mode = 1;
     welcomeText.remove();
     startButton.remove();
-    game.playSound()
+    // game.playSound()
   }
   resetGame() {
     game.updateHighscore();
@@ -136,11 +139,22 @@ class Game {
       endText.html(`You collected ${game.score} ${pile} of poop, good job! Your current highscore is ${game.highscore}. Keep going!`);
     }
   }
+  muteSound() {
+    game.muted = !game.muted;
+    if (game.muted) {
+      sound.innerText = '🔇';
+      game.backgroundMusic.pause();
+    } else {
+      sound.innerText = '🔊';
+    }
+  }
   playSound() {
-    if(game.backgroundMusic.isPlaying() == false)
-    {
-      game.backgroundMusic.setVolume(0.1);
-      game.backgroundMusic.play();
+    if (!game.muted) {
+      if(!game.backgroundMusic.isPlaying())
+      {
+        game.backgroundMusic.setVolume(0.1);
+        game.backgroundMusic.play();
+      }
     }
   }
 }
