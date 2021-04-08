@@ -16,21 +16,22 @@ class Player {
         if (keyIsDown(39)) {
             this.moveRight()
         }
-
-        if (this.stepCount < 10) {
-            game.playerImage = loadImage('images/player/player.png');
-            this.stepCount++
-        } else if (this.stepCount < 20) {
-            game.playerImage = loadImage('images/player/player-l.png');
-            this.stepCount++
-        } else if (this.stepCount < 30) {
-            game.playerImage = loadImage('images/player/player.png');
-            this.stepCount++
-        } else if (this.stepCount < 40) {
-            game.playerImage = loadImage('images/player/player-r.png');
-            this.stepCount++
-        } else {
-            this.stepCount = 0;
+        if (game.level < 6) {
+            if (this.stepCount < 10) {
+                game.playerImage = loadImage('images/player/player.png');
+                this.stepCount++
+            } else if (this.stepCount < 20) {
+                game.playerImage = loadImage('images/player/player-l.png');
+                this.stepCount++
+            } else if (this.stepCount < 30) {
+                game.playerImage = loadImage('images/player/player.png');
+                this.stepCount++
+            } else if (this.stepCount < 40) {
+                game.playerImage = loadImage('images/player/player-r.png');
+                this.stepCount++
+            } else {
+                this.stepCount = 0;
+            }
         }
     }
     moveLeft() {

@@ -8,10 +8,11 @@ class Game {
     this.player = new Player();
     this.dog = new Dog();
     this.background = new Background();
-    this.muted = false;
+    this.muted = true;
   }
   setup() {
     this.background.setup();
+    this.dog.setup();
 
     // start elements
     startButton = createButton('START');
@@ -48,6 +49,12 @@ class Game {
     ];
     soundFormats('mp3', 'ogg');
     this.backgroundMusic = loadSound('sounds/Steppin-Up.mp3');
+    this.dogBark = [
+      { src: loadSound('sounds/dog_bark_001.mp3')},
+      { src: loadSound('sounds/dog_bark_002.mp3')},
+      { src: loadSound('sounds/dog_bark_003.mp3')}
+    ]
+
   }
   draw() {
     this.playSound();
