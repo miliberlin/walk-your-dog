@@ -6,7 +6,7 @@ const SQUARE = 30;
 const score = document.querySelector("#score-value");
 const cash = document.querySelector("#cash-value");
 const level = document.querySelector("#level-value");
-const sound = document.querySelector("#sound .emoji");
+const sound = document.querySelector("#sound .icon");
 
 let startButton;
 let welcomeText;

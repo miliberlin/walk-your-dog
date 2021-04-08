@@ -72,14 +72,13 @@ canvas {
   font-size: 1.2rem;
 }
 
-#panel .emoji {
+#panel span {
   position: relative;
-  bottom: 0.2rem;
-  left: 0.7rem;
+  left: -0.6rem;
 }
 
-#panel > * {
-  margin: 0 15px;
+#panel > *:not(:last-child) {
+  margin-right: 15px;
 }
 
 #panel #sound {
