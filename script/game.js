@@ -1,16 +1,30 @@
 class Game {
   constructor() {
     this.score = 0;
+    this.highscore = 0;
     this.cash = 10;
     this.level = 1;
     this.mode = 0;
     this.player = new Player();
     this.dog = new Dog();
     this.background = new Background();
-    this.highscore = 0;
   }
   setup() {
     this.background.setup();
+
+    // start elements
+    startButton = createButton('START');
+    startButton.parent('canvas');
+    welcomeText = createElement('p', 'The game is simple: collect your dog\'s 💩 and you\'ll receive 10 dollars for every third one.\nBe aware: when you miss one you\'ll be fined 50 dollar! 💵\nAnd the more your dog walks the more active it gets...');
+    welcomeText.addClass('welcomeText')
+    welcomeText.parent('canvas');
+
+    // end elements
+    resetButton = createButton('PLAY AGAIN');
+    resetButton.parent('canvas');
+    endText = createElement('p', '');
+    endText.addClass('endText');
+    endText.parent('canvas')
 
     // canvas.mousePressed(this.keyPressed);
     // background(220);
@@ -41,10 +55,43 @@ class Game {
     // this.sound = loadSound('sounds/Steppin-Up.mp3');
   }
   draw() {
-    clear();
-    this.background.draw();
-    this.player.draw();
-    this.dog.draw();
+    if (this.mode === 0) {
+      clear();
+      resetButton.hide();
+      endText.hide();
+  
+      fill(51);
+      rect(0, 0, WIDTH, HEIGHT);
+  
+      startButton.position(180, 330);
+      welcomeText.position(0,0)
+      startButton.mouseClicked(this.startGame)
+    } else if (this.mode === 1) {
+      clear();
+      this.background.draw();
+      // game.drawGrid();
+      this.player.draw();
+      this.dog.draw();
+  
+      if (this.cash < 0) {
+        this.mode = 2;
+      }
+    } else if (this.mode === 2) {
+      clear();
+      startButton.hide();
+      welcomeText.hide();
+  
+      fill(51);
+      rect(0, 0, WIDTH, HEIGHT);
+  
+      this.renderEndMessage();
+      endText.position(0,0);
+      resetButton.position(140, 250);
+      resetButton.mouseClicked(this.resetGame);
+  
+      resetButton.show();
+      endText.show();
+    }
   }
   drawGrid() {
     for (let i = 0; i < WIDTH; i += this.player.width) {
@@ -52,6 +99,47 @@ class Game {
       line(i, 0, i, HEIGHT);
         line(0, k, WIDTH, k);
       }
+    }
+  }
+  startGame() {
+    game.mode = 1;
+    welcomeText.remove();
+    startButton.remove();
+  }
+  resetGame() {
+    game.updateHighscore();
+    game.mode = 1;
+    game.cash = 200;
+    game.level = 1;
+    game.score = 0;
+    game.dog.poopArray = [];
+
+    score.innerText = game.score;
+    cash.innerText = game.cash;
+    level.innerText = game.level;
+
+    resetButton.hide();
+    endText.hide();
+  }
+  updateHighscore() {
+    if (game.score > game.highscore) {
+      game.highscore = game.score
+    }
+  }
+  renderEndMessage() {
+    let pile = 'pile';
+    if (game.score > 1) {
+      pile = 'piles';
+    }
+  
+    if (game.score === 0) {
+      endText.html(`You didn\'t collect any poop. Let\'s try harder next time!`)
+    } else if (game.score > game.highscore) {
+      endText.html(`You collected ${game.score} ${pile} of poop and set a new highscore. Congratulations!`)
+    } else if (game.score === game.highscore) {
+      endText.html(`You did it again! You collected ${game.score} ${pile} of poop which is the same as your current highscore.`)
+    } else {
+      endText.html(`You collected ${game.score} ${pile} of poop, good job! Your current highscore is ${game.highscore}. Keep going!`);
     }
   }
 }
