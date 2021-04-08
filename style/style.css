@@ -16,25 +16,11 @@ body {
   border-radius: 5px;
 }
 
-/***** FONT STYLING *****/
-body {
-  font-family: "Press Start 2P", cursive;
-}
-
+/* FONT STYLING */
 h1 {
   text-align: center;
   font-size: 1.9rem;
   margin: 1.5rem 0;
-}
-
-/* CANVAS */
-#canvas {
-  width: 100%;
-  position: relative;
-}
-
-canvas {
-  border-radius: 5px;
 }
 
 p.welcomeText,
@@ -55,6 +41,16 @@ p.endText {
   height: 100px;
 }
 
+/* CANVAS */
+#canvas {
+  width: 100%;
+  position: relative;
+}
+
+canvas {
+  border-radius: 5px;
+}
+
 /* PANEL */
 #panel {
   display: flex;
@@ -63,17 +59,18 @@ p.endText {
   padding: 20px;
   font-size: 1.2rem;
 }
+
 #panel .emoji {
   position: relative;
   bottom: 0.2rem;
   left: 0.7rem;
 }
+
 #panel > * {
   margin: 0 15px;
 }
+
 #panel #sound {
   padding-bottom: 5px;
   cursor: pointer;
 }
-
-/*# sourceMappingURL=style.css.map */

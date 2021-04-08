@@ -8,7 +8,7 @@ class Game {
     this.player = new Player();
     this.dog = new Dog();
     this.background = new Background();
-    this.muted = false;
+    // this.muted = true;
   }
   setup() {
     this.background.setup();
