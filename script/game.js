@@ -53,8 +53,8 @@ class Game {
       { src: loadSound('sounds/dog_bark_001.mp3')},
       { src: loadSound('sounds/dog_bark_002.mp3')},
       { src: loadSound('sounds/dog_bark_003.mp3')}
-    ]
-
+    ],
+    this.levelUpSound = loadSound('sounds/level-up.mp3');
   }
   draw() {
     this.playSound();
@@ -159,7 +159,7 @@ class Game {
     if (!game.muted) {
       if(!game.backgroundMusic.isPlaying())
       {
-        game.backgroundMusic.setVolume(0.1);
+        game.backgroundMusic.setVolume(0.05);
         game.backgroundMusic.play();
       }
     }

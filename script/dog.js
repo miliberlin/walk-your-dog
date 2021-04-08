@@ -55,15 +55,15 @@ class Dog {
     // pooping
     if (game.level > 12) {
       if (this.x % 30 === 0) {
-        this.poopArray.push(new Poop());
+        this.poopArray.push(new Poop(game.level));
       }
     } else if (game.level <= 8) {
       if ((this.x % 30 === 0) && (frameCount % 2 === 0)) {
-        this.poopArray.push(new Poop());
+        this.poopArray.push(new Poop(game.level));
       }
     } else if (game.level < 5) {
       if ((this.x % 30 === 0) && (frameCount % 3 === 0)) {
-        this.poopArray.push(new Poop());
+        this.poopArray.push(new Poop(game.level));
       }
     }
 
@@ -81,13 +81,16 @@ class Dog {
         }
         // increase level
         if (game.score % 10 === 0) {
+          game.levelUpSound.setVolume(0.2);
+          game.levelUpSound.play();
           game.level++;
+          game.dog.poopArray = [];
           level.innerText = game.level;
           game.background.generateBackground();
         }
       }
       // remove element from array when it has left the screen
-      if (newPoop.y === HEIGHT + 5) {
+      if (newPoop.y > HEIGHT + (SQUARE/2)) {
         game.dog.poopArray.splice(game.dog.poopArray.indexOf(newPoop),1);
         game.cash-=50;
         if (game.cash < 0) {

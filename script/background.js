@@ -16,7 +16,7 @@ class Background {
     for (let y = -SQUARE; y < HEIGHT+SQUARE; y+=30) {
       const row = [];
       for (let x = 0; x < WIDTH; x+=30) {
-        let obj = {... game.backgroundImages[bgLevel][Math.floor(Math.random()*game.backgroundImages[bgLevel].length)] };
+        let obj = {... game.backgroundImages[bgLevel][Math.floor(Math.random()*game.backgroundImages.length)] };
         obj['x'] = x;
         obj['y'] = y;
         row.push(obj)
