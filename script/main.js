@@ -51,7 +51,6 @@ function draw() {
     clear();
     game.draw();
     // game.drawGrid();
-    updateHighscore();
 
     if (game.cash < 0) {
       game.mode = 2;
@@ -64,14 +63,13 @@ function draw() {
     fill(51);
     rect(0, 0, WIDTH, HEIGHT);
 
-    endText.html(`You collected  ${game.score} piles of poop, good job!\n\nThe current highscore is ${game.highscore}.`);
+    renderEndMessage();
     endText.position(0,0);
     resetButton.position(140, 250);
     resetButton.mouseClicked(resetGame);
 
     resetButton.show();
     endText.show();
-    
   }
 }
 
@@ -82,12 +80,40 @@ function startGame() {
 }
 
 function resetGame() {
+  updateHighscore();
   game.mode = 1;
-  resetButton.remove();
+  game.cash = 200;
+  game.level = 1;
+  game.score = 0;
+  game.dog.poopArray = [];
+
+  score.innerText = game.score;
+  cash.innerText = game.cash;
+  level.innerText = game.level;
+
+  resetButton.hide();
+  endText.hide();
 }
 
 function updateHighscore() {
   if (game.score > game.highscore) {
     game.highscore = game.score
+  }
+}
+
+function renderEndMessage() {
+  let pile = 'pile';
+  if (game.score > 1) {
+    pile = 'piles';
+  }
+
+  if (game.score === 0) {
+    endText.html(`You didn\'t collect any poop. Let\'s try harder next time!`)
+  } else if (game.score > game.highscore) {
+    endText.html(`You collected ${game.score} ${pile} of poop and set a new highscore. Congratulations!`)
+  } else if (game.score === game.highscore) {
+    endText.html(`You did it again! You collected ${game.score} ${pile} of poop which is the same as your current highscore.`)
+  } else {
+    endText.html(`You collected ${game.score} ${pile} of poop, good job! Your current highscore is ${game.highscore}. Keep going!`);
   }
 }
