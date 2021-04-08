@@ -17,7 +17,7 @@ class Game {
     // start elements
     startButton = createButton('START');
     startButton.parent('canvas');
-    welcomeText = createElement('p', 'The game is simple: collect your dog\'s 💩 and you\'ll receive 10 dollar for every third one.\nBe aware: when you miss one you\'ll be fined 50 dollar! 💵\nAnd the more your dog walks the more active it gets...');
+    welcomeText = createElement('p', 'The game is simple: collect your dog\'s poop and you\'ll receive 10 dollars for every third one. Be aware: when you miss one you\'ll be fined 50 dollars! And the more your dog walks the more active it gets...');
     welcomeText.addClass('welcomeText')
     welcomeText.parent('canvas');
 
@@ -66,8 +66,8 @@ class Game {
       fill(51);
       rect(0, 0, WIDTH, HEIGHT);
   
-      startButton.position(180, 330);
-      welcomeText.position(0,0)
+      startButton.position(170, 330);
+      welcomeText.position(40, 45)
       startButton.mouseClicked(this.startGame)
     } else if (this.mode === 1) {
       clear();
@@ -88,8 +88,8 @@ class Game {
       rect(0, 0, WIDTH, HEIGHT);
   
       this.renderEndMessage();
-      endText.position(0,0);
-      resetButton.position(140, 250);
+      endText.position(30, 60);
+      resetButton.position(130, 250);
       resetButton.mouseClicked(this.resetGame);
   
       resetButton.show();

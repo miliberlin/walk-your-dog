@@ -90,7 +90,7 @@ class Dog {
         }
       }
       // remove element from array when it has left the screen
-      if (newPoop.y > HEIGHT + (SQUARE/2)) {
+      if (newPoop.y > HEIGHT + 5) {
         game.dog.poopArray.splice(game.dog.poopArray.indexOf(newPoop),1);
         game.cash-=50;
         if (game.cash < 0) {
