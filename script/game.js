@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.score = 0;
     this.highscore = 0;
-    this.cash = 10;
+    this.cash = 150;
     this.level = 1;
     this.mode = 0;
     this.player = new Player();
@@ -15,7 +15,7 @@ class Game {
     // start elements
     startButton = createButton('START');
     startButton.parent('canvas');
-    welcomeText = createElement('p', 'The game is simple: collect your dog\'s 💩 and you\'ll receive 10 dollars for every third one.\nBe aware: when you miss one you\'ll be fined 50 dollar! 💵\nAnd the more your dog walks the more active it gets...');
+    welcomeText = createElement('p', 'The game is simple: collect your dog\'s 💩 and you\'ll receive 10 dollar for every third one.\nBe aware: when you miss one you\'ll be fined 50 dollar! 💵\nAnd the more your dog walks the more active it gets...');
     welcomeText.addClass('welcomeText')
     welcomeText.parent('canvas');
 
@@ -25,14 +25,6 @@ class Game {
     endText = createElement('p', '');
     endText.addClass('endText');
     endText.parent('canvas')
-
-    // canvas.mousePressed(this.keyPressed);
-    // background(220);
-    // text('tap here to play', 10, 20);
-  // keyPressed() {
-  //   if (keyCode === ENTER) {
-  //     game.sound.play();
-  //   }
   }
   preload() {
     this.playerImage = loadImage('images/player/player.png');
@@ -51,10 +43,11 @@ class Game {
         { src: loadImage('images/background/level-2/tile-9.png')}
       ]
     ];
-    // soundFormats('mp3');
-    // this.sound = loadSound('sounds/Steppin-Up.mp3');
+    soundFormats('mp3', 'ogg');
+    this.backgroundMusic = loadSound('sounds/Steppin-Up.mp3');
   }
   draw() {
+    this.playSound();
     if (this.mode === 0) {
       clear();
       resetButton.hide();
@@ -105,6 +98,7 @@ class Game {
     game.mode = 1;
     welcomeText.remove();
     startButton.remove();
+    game.playSound()
   }
   resetGame() {
     game.updateHighscore();
@@ -140,6 +134,13 @@ class Game {
       endText.html(`You did it again! You collected ${game.score} ${pile} of poop which is the same as your current highscore.`)
     } else {
       endText.html(`You collected ${game.score} ${pile} of poop, good job! Your current highscore is ${game.highscore}. Keep going!`);
+    }
+  }
+  playSound() {
+    if(game.backgroundMusic.isPlaying() == false)
+    {
+      game.backgroundMusic.setVolume(0.1);
+      game.backgroundMusic.play();
     }
   }
 }
