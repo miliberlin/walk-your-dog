@@ -8,7 +8,7 @@ class Game {
     this.player = new Player();
     this.dog = new Dog();
     this.background = new Background();
-    // this.muted = true;
+    this.muted = false;
   }
   setup() {
     this.background.setup();
@@ -76,7 +76,7 @@ class Game {
       this.player.draw();
       this.dog.draw();
   
-      if (this.cash < 0) {
+      if (this.cash <= 0) {
         this.mode = 2;
       }
     } else if (this.mode === 2) {

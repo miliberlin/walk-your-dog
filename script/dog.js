@@ -90,6 +90,9 @@ class Dog {
       if (newPoop.y === HEIGHT + 5) {
         game.dog.poopArray.splice(game.dog.poopArray.indexOf(newPoop),1);
         game.cash-=50;
+        if (game.cash < 0) {
+          game.cash = 0;
+        }
         cash.innerText = game.cash;
       }
     })
