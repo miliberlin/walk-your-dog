@@ -149,10 +149,10 @@ class Game {
   muteSound() {
     game.muted = !game.muted;
     if (game.muted) {
-      sound.src = '/images/menu/menu-sound-off.png';
+      sound.src = 'images/menu/menu-sound-off.png';
       game.backgroundMusic.pause();
     } else {
-      sound.src = '/images/menu/menu-sound-on.png';
+      sound.src = 'images/menu/menu-sound-on.png';
     }
   }
   playSound() {
