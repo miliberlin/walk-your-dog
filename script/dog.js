@@ -53,7 +53,7 @@ class Dog {
     }
 
     // pooping
-    if (game.level > 12) {
+    if (game.level >= 9) {
       if (this.x % 30 === 0) {
         this.poopArray.push(new Poop(game.level));
       }
