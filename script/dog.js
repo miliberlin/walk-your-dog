@@ -81,7 +81,7 @@ class Dog {
         }
         // increase level
         if (game.score % 10 === 0) {
-          if (!game.muted) {
+          if (game.muted) {
             game.levelUpSound.setVolume(0.2);
             game.levelUpSound.play();
           }

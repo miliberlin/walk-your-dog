@@ -108,7 +108,6 @@ class Game {
     game.mode = 1;
     welcomeText.remove();
     startButton.remove();
-    // game.playSound()
   }
   resetGame() {
     game.updateHighscore();
