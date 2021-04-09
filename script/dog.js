@@ -81,8 +81,10 @@ class Dog {
         }
         // increase level
         if (game.score % 10 === 0) {
-          game.levelUpSound.setVolume(0.2);
-          game.levelUpSound.play();
+          if (!game.muted) {
+            game.levelUpSound.setVolume(0.2);
+            game.levelUpSound.play();
+          }
           game.level++;
           game.dog.poopArray = [];
           level.innerText = game.level;
